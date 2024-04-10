@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:betonchel_manager/di/injection.dart';
-import 'package:betonchel_manager/presentation/components/cubits/user/user_cubit.dart';
+import 'package:betonchel_manager/presentation/ui/components/cubits/user/user_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

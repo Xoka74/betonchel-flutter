@@ -1,4 +1,4 @@
-import 'package:betonchel_manager/presentation/components/cubits/auth/auth_cubit.dart';
+import 'package:betonchel_manager/presentation/ui/components/cubits/auth/auth_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
