@@ -22,6 +22,9 @@ run-release:
 run-profile:
 	flutter run --dart-define-from-file=config.json --profile
 
+build-web:
+	flutter build web --release --dart-define-from-file=config.json
+
 build-apk:
 	flutter build apk --dart-define-from-file=config.json
 
