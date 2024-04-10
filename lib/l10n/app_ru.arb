@@ -1,0 +1,14 @@
+{
+  "home" : "Главная",
+  "admin" : "Администратор",
+  "manager" : "Менеджер",
+  "today" : "Сегодня",
+  "created" : "Создано",
+  "pending" : "В процессе",
+  "finished" : "Завершено",
+  "unknown" : "Неизвестно",
+  "cancelled" : "Отменено",
+  "noApplications" : "Нет заявок",
+  "notifications" : "Уведомления",
+  "profile" : "Профиль"
+}

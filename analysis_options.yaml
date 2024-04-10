@@ -1,0 +1,74 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  plugins:
+    - dart_code_metrics
+  exclude:
+    - '**.g.dart'
+    - '**.gr.dart'
+    - 'lib/service_locator/injection.config.dart'
+
+linter:
+  rules:
+    avoid_empty_else: true
+    avoid_print: true
+    avoid_init_to_null: true
+    avoid_unnecessary_containers: true
+    constant_identifier_names: true
+    curly_braces_in_flow_control_structures: true
+    no_logic_in_create_state: true
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_is_empty: true
+    sized_box_for_whitespace: true
+    always_use_package_imports: true
+    throw_in_finally: true
+    always_declare_return_types: true
+    empty_constructor_bodies: true
+    prefer_if_null_operators: true
+    prefer_null_aware_operators: true
+    unnecessary_await_in_return: true
+    unnecessary_getters_setters: true
+    unnecessary_lambdas: true
+    unnecessary_this: true
+    prefer_single_quotes: true
+    depend_on_referenced_packages: true
+
+dart_code_metrics:
+  metrics:
+    cyclomatic-complexity: 20
+    number-of-parameters: 5
+    maximum-nesting-level: 5
+    source-lines-of-code: 50
+  metrics-exclude:
+    - test/**
+  rules:
+    ### DART RULES
+    - avoid-cascade-after-if-null
+    - avoid-dynamic
+    - avoid-global-state
+    - avoid-nested-conditional-expressions
+    - avoid-unnecessary-conditionals
+    - list-all-equatable-fields
+    - newline-before-return
+    - no-boolean-literal-compare
+    - no-equal-then-else
+    - prefer-async-await
+    - prefer-conditional-expressions
+    - prefer-iterable-of
+    - prefer-match-file-name
+    - prefer-trailing-comma
+
+    ### FLUTTER RULES
+    - avoid-expanded-as-spacer
+    - avoid-returning-widgets
+    - prefer-extracting-callbacks:
+        ignored-named-arguments:
+          - listener
+          - generator
+        allowed-line-count: 1
+    - prefer-single-widget-per-file
+    - use-setstate-synchronously
+  anti-patterns:
+    - long-method
+    - long-parameter-list
