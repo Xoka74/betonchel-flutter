@@ -22,25 +22,7 @@ run-release:
 run-profile:
 	flutter run --dart-define-from-file=config.json --profile
 
-build-web:
-	flutter build web --release --dart-define-from-file=config.json
-
-build-apk:
-	flutter build apk --dart-define-from-file=config.json
-
-build-ipa:
-	flutter build ipa --dart-define-from-file=config.json
-
-build-apk-test:
-	flutter build apk --dart-define-from-file=config-client-test.json
-
-build-ipa-test:
-	flutter build ipa --dart-define-from-file=config-client-test.json
-
-build-apk-stage:
-	flutter build apk --dart-define-from-file=config-stage.json
-
-build-ipa-stage:
-	flutter build ipa --dart-define-from-file=config-stage.json
+build-web-production:
+	flutter build web --release --dart-define-from-file=config-production.json
 
 setup: clean pub-get gen format

@@ -25,9 +25,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(state);
   }
 
-  Future<void> logout() async {
-    _authRepository.logout();
-  }
+  Future<void> logout() => _authRepository.logout();
 
   @override
   Future<void> close() {

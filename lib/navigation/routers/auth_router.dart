@@ -11,19 +11,17 @@ class AuthRouter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthCubit, AuthState>(
-      builder: (context, state) {
-        final initialRoute = switch (state) {
-          AuthorizedState() => const AuthorizedPage(),
-          UnauthorizedState() => const UnauthorizedPage(),
-          AuthLoadingState() => const LoadingPage(),
+    return BlocConsumer<AuthCubit, AuthState>(
+      listener: (context, state) async {
+        final stack = switch (state) {
+          AuthorizedState() => context.router.pendingRoutesHandler.peek ?? [const HomeRootPage()],
+          UnauthorizedState() => const [UnauthorizedPage()],
+          AuthLoadingState() => const [LoadingPage()],
         };
-
-        return AutoRouter.declarative(
-          routes: (handler) => [
-            initialRoute,
-          ],
-        );
+        context.router.replaceAll(stack);
+      },
+      builder: (context, state) {
+        return const AutoRouter();
       },
     );
   }

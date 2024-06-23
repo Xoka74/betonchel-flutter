@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.betonchel.betonchel_manager",
+    "sha256_cert_fingerprints":
+    ["68:37:94:DC:57:9D:98:C1:9B:28:75:9F:D4:54:A3:2F:34:6C:4B:11:53:E9:0A:6B:A9:73:BE:D6:AF:B6:64:D0"]
+  }
+}]

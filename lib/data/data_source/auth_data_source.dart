@@ -12,11 +12,15 @@ class AuthDataSource {
 
   late final isAuthenticated = _isAuthenticated.stream.distinct();
 
+  String? accessToken;
+  String? refreshToken;
+
   AuthDataSource(this._storage);
 
   Future<void> read() async {
-    final accessToken = await _storage.read(key: StorageKeys.accessToken);
-    final refreshToken = await _storage.read(key: StorageKeys.refreshToken);
+    accessToken = await _storage.read(key: StorageKeys.accessToken);
+    refreshToken = await _storage.read(key: StorageKeys.refreshToken);
+
     final tokens = [accessToken, refreshToken];
 
     if (tokens.any((element) => element == null)) {
@@ -26,14 +30,15 @@ class AuthDataSource {
     return _update(true);
   }
 
-  Future<void> update(AuthData authData) async {
+  Future<void> save(AuthData authData) async {
     await _storage.write(key: StorageKeys.accessToken, value: authData.accessToken);
     await _storage.write(key: StorageKeys.refreshToken, value: authData.refreshToken);
 
+    accessToken = authData.accessToken;
+    refreshToken = authData.refreshToken;
+
     return _update(true);
   }
-
-  void _update(bool isAuthenticated) => _isAuthenticated.sink.add(isAuthenticated);
 
   Future<void> clear() async {
     await _storage.delete(key: StorageKeys.accessToken);
@@ -41,4 +46,6 @@ class AuthDataSource {
 
     return _update(false);
   }
+
+  void _update(bool isAuthenticated) => _isAuthenticated.sink.add(isAuthenticated);
 }

@@ -1,20 +1,20 @@
-import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:betonchel_manager/domain/models/application/application.dart';
 
-part 'notification.g.dart';
+sealed class AppNotification {
+  final DateTime time;
+  final int applicationId;
 
-@JsonSerializable(createToJson: false)
-class Notification extends Equatable {
-  final String id;
+  AppNotification(this.time, this.applicationId);
+}
 
-  const Notification({
-    required this.id,
-  });
+class ApplicationCreatedNotification extends AppNotification {
+  final Application application;
 
-  factory Notification.fromJson(Map<String, dynamic> json) => _$NotificationFromJson(json);
+  ApplicationCreatedNotification(this.application) : super(DateTime.now(), application.id);
+}
 
-  @override
-  List<Object?> get props => [
-        id,
-      ];
+class ApplicationUpdatedNotification extends AppNotification {
+  final Application oldApp;
+
+  ApplicationUpdatedNotification(this.oldApp) : super(DateTime.now(), oldApp.id);
 }

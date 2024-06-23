@@ -21,11 +21,22 @@ class DatePickerBuilder extends StatefulWidget {
 class _DatePickerBuilderState extends State<DatePickerBuilder> {
   @override
   Widget build(BuildContext context) {
+    final borderRadius = BorderRadius.circular(18);
+
     return ValueListenableBuilder(
       valueListenable: widget.controller,
-      builder: (context, value, child) => GestureDetector(
-        onTap: _onDatePickerPressed,
-        child: widget.builder(value),
+      builder: (context, value, child) => Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: borderRadius,
+        ),
+        child: InkWell(
+          borderRadius: borderRadius,
+          onTap: _onDatePickerPressed,
+          child: Padding(
+            padding: const EdgeInsets.all(6),
+            child: widget.builder(value),
+          ),
+        ),
       ),
     );
   }

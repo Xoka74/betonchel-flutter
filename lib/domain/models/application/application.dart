@@ -10,29 +10,33 @@ part 'application.g.dart';
 @JsonSerializable(createToJson: false)
 class Application extends Equatable {
   final int id;
-  final User creator;
+
+  final User user;
   final String customerName;
+  final String contactData;
+  final String description;
   final double totalPrice;
   final double volume;
   final String? deliveryAddress;
-  final DateTime creationDate;
+
   final DateTime deliveryDate;
   final ConcretePump? concretePump;
-  final ConcreteGrade? concreteGrade;
+  final ConcreteGrade concreteGrade;
   final ApplicationStatus status;
 
   const Application({
     required this.id,
-    required this.creator,
+    required this.description,
     required this.customerName,
+    required this.contactData,
     required this.totalPrice,
     required this.volume,
     required this.deliveryAddress,
-    required this.creationDate,
     required this.deliveryDate,
     required this.concretePump,
     required this.concreteGrade,
     required this.status,
+    required this.user,
   });
 
   factory Application.fromJson(Map<String, dynamic> json) => _$ApplicationFromJson(json);
@@ -40,15 +44,16 @@ class Application extends Equatable {
   @override
   List<Object?> get props => [
         id,
-        creator,
+        description,
         customerName,
+        contactData,
         totalPrice,
         volume,
         deliveryAddress,
-        creationDate,
         deliveryDate,
         concretePump,
         concreteGrade,
         status,
+        user,
       ];
 }

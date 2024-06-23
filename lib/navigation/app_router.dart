@@ -1,9 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:betonchel_manager/navigation/app_router.gr.dart';
 import 'package:betonchel_manager/navigation/constants/locations.dart';
+import 'package:betonchel_manager/navigation/custom_routes/dialog_modal_route.dart';
+import 'package:injectable/injectable.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Popup|Router,Page')
+@lazySingleton
 class AppRouter extends $AppRouter {
+  @override
+  RouteType get defaultRouteType => const RouteType.adaptive();
+
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
@@ -16,32 +22,17 @@ class AppRouter extends $AppRouter {
               path: Locations.loading,
               initial: true,
             ),
-            AutoRoute(
-              page: AuthorizedPage.page,
-              path: '',
-              children: [
-                AutoRoute(
-                  page: HomePage.page,
-                  path: Locations.home,
-                  initial: true,
-                ),
-                AutoRoute(
-                  page: ApplicationDetailsPage.page,
-                  path: Locations.applicationDetails,
-                ),
-                AutoRoute(
-                  page: NewApplicationPage.page,
-                  path: Locations.applicationNew,
-                ),
-                AutoRoute(
-                  page: NotificationsListPage.page,
-                  path: Locations.notifications,
-                ),
-                AutoRoute(
-                  page: ProfilePage.page,
-                  path: Locations.profile,
-                ),
-              ],
+            DialogModalRoute(
+              page: ConcreteGradeEditPage.page,
+              path: Locations.concreteGradesEdit,
+            ),
+            DialogModalRoute(
+              page: NewConcreteGradePage.page,
+              path: Locations.concreteGradesNew,
+            ),
+            DialogModalRoute(
+              page: EmployeeCreatePage.page,
+              path: Locations.employeesCreate,
             ),
             AutoRoute(
               page: UnauthorizedPage.page,
@@ -51,6 +42,49 @@ class AppRouter extends $AppRouter {
                   page: LoginPage.page,
                   path: Locations.login,
                   initial: true,
+                ),
+              ],
+            ),
+            AutoRoute(
+              page: HomeRootPage.page,
+              path: '',
+              children: [
+                AutoRoute(
+                  page: ApplicationListPage.page,
+                  path: Locations.home,
+                  initial: true,
+                ),
+                AutoRoute(
+                  page: ApplicationDetailsPage.page,
+                  path: Locations.applicationDetails,
+                ),
+                AutoRoute(
+                  page: EmployeesListPage.page,
+                  path: Locations.employees,
+                ),
+                AutoRoute(
+                  page: NotificationsListPage.page,
+                  path: Locations.notifications,
+                ),
+                AutoRoute(
+                  page: NewApplicationPage.page,
+                  path: Locations.applications,
+                ),
+                AutoRoute(
+                  page: EditApplicationPage.page,
+                  path: Locations.applications,
+                ),
+                AutoRoute(
+                  page: SettingsPage.page,
+                  path: Locations.settings,
+                ),
+                AutoRoute(
+                  page: ProfilePage.page,
+                  path: Locations.profile,
+                ),
+                AutoRoute(
+                  page: ConcreteGradeListPage.page,
+                  path: Locations.concreteGrades,
                 ),
               ],
             ),

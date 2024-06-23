@@ -3,12 +3,81 @@
   "admin" : "Администратор",
   "manager" : "Менеджер",
   "today" : "Сегодня",
-  "created" : "Создано",
-  "pending" : "В процессе",
-  "finished" : "Завершено",
-  "unknown" : "Неизвестно",
-  "cancelled" : "Отменено",
+  "created" : "Создана",
+  "inWork" : "В работе",
+  "finished" : "Завершена",
+  "cancelled" : "Отменена",
   "noApplications" : "Нет заявок",
+  "noNotifications" : "Нет уведомлений",
   "notifications" : "Уведомления",
-  "profile" : "Профиль"
+  "profile" : "Профиль",
+  "newApplication" : "Новая заявка",
+  "newEmployee" : "Новый сотрудник",
+  "newGood" : "Новый товар",
+  "login" : "Войти",
+  "logout" : "Выйти",
+  "settings" : "Настройки",
+  "customerName" : "Имя клиента",
+  "deliveryAddress" : "Адрес доставки",
+  "deliveryPrice" : "Цена доставки",
+  "save" : "Сохранить",
+  "scrapVolumeCubes" : "Объем бетона в м³",
+  "applicationStatus" : "Статус заявки",
+  "deliveryDateTime" : "Дата и время доставки",
+  "mail" : "Почта",
+  "common" : "Обычный",
+  "fine" : "Мелкозернистый",
+  "password" : "Пароль",
+  "description" : "Описание",
+  "concreteGrades" : "Виды бетона",
+  "concreteGrade" : "Вид бетона",
+  "mark" : "Марка",
+  "clazz" : "Класс",
+  "applications" : "Заявки",
+  "employees" : "Cотрудники",
+  "number" : "Номер",
+  "status" : "Статус",
+  "time" : "Время",
+  "goods" : "Товары",
+  "frostResistance" : "Морозоустойчивость",
+  "waterproof" : "Водонепроницаемость",
+  "unexpectedError" : "Что-то пошло не так",
+  "concreteGradeNotExist" : "Такого бетона не существует",
+  "totalPrice" : "Общая цена",
+  "thisFieldIsRequired" : "Это поле обязательно",
+  "contactData" : "Контактные данные",
+  "fullName" : "Фамилия Имя",
+  "role" : "Роль",
+  "pricePerCubicMeter" : "Цена за 1 м³",
+  "shouldStartWithLetter": "Должно начинаться на букву {letter}",
+  "@shouldStartWithLetter": {
+    "placeholders": {
+      "letter": {
+        "type": "String",
+        "example": "M"
+      }
+    }
+  },
+  "volume" : "Объем",
+  "invalidDoubleField" : "Поле должно содержать число",
+  "nRoubles": "{n} руб.",
+  "@nRoubles": {
+    "placeholders": {
+      "n": {
+        "type": "double",
+        "example": "1000"
+      }
+    }
+  },
+  "nCubicMeters": "{n} м³",
+  "@nCubicMeters": {
+    "placeholders": {
+      "n": {
+        "type": "double",
+        "example": "1000"
+      }
+    }
+  },
+  "whenWillTheDeliveryBe" : "Когда планируется доставка?",
+  "email" : "Почта"
 }

@@ -8,6 +8,4 @@ class NotificationsListCubit extends InitializableCubit<NotificationsListState> 
 
   @override
   Future<void> initialize() async {}
-
-
 }

@@ -4,14 +4,12 @@ part 'application_status.g.dart';
 
 @JsonEnum(alwaysCreate: true)
 enum ApplicationStatus {
-  @JsonValue('created')
+  @JsonValue('Created')
   created,
-  @JsonValue('pending')
-  pending,
-  @JsonValue('finished')
-  finished,
-  @JsonValue('unknown')
-  unknown,
-  @JsonValue('cancelled')
-  cancelled;
+  @JsonValue('InProcess')
+  inProcess,
+  @JsonValue('SuccessfullyFinished')
+  successfullyFinished,
+  @JsonValue('Rejected')
+  rejected;
 }

@@ -17,13 +17,10 @@ class LoggingInterceptor extends Interceptor {
       'DioError: \n'
       'url: ${err.requestOptions.uri}\n'
       'query: ${err.requestOptions.queryParameters}\n'
-      'headers: ${err.requestOptions.headers}'
+      'headers: ${err.requestOptions.headers}\n'
       'requestBody: ${_tryToJsonString(err.requestOptions.data)}\n'
       'responseBody: ${_tryToJsonString(err.response?.data)}',
-      err,
-      err.stackTrace,
     );
-
     throw err;
   }
 
@@ -34,8 +31,6 @@ class LoggingInterceptor extends Interceptor {
       'query: ${options.queryParameters}\n'
       'headers: ${options.headers}\n'
       'body: ${_tryToJsonString(options.data)}',
-      null,
-      StackTrace.empty,
     );
     super.onRequest(options, handler);
   }
@@ -48,8 +43,6 @@ class LoggingInterceptor extends Interceptor {
       'query: ${response.requestOptions.queryParameters}\n'
       'headers: ${response.requestOptions.headers}\n'
       'body: ${_tryToJsonString(response.data)}',
-      null,
-      StackTrace.empty,
     );
     super.onResponse(response, handler);
   }

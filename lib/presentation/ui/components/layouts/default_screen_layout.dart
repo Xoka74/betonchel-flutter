@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 
 class DefaultScreenLayout extends StatelessWidget {
   final Widget child;
-  final AppBar? appBar;
+  final PreferredSizeWidget? appBar;
   final Widget? floatingActionButton;
+  final Widget? drawer;
 
   const DefaultScreenLayout({
     super.key,
     required this.child,
     this.appBar,
     this.floatingActionButton,
+    this.drawer,
   });
 
   @override
@@ -17,6 +19,7 @@ class DefaultScreenLayout extends StatelessWidget {
     return Scaffold(
       body: child,
       appBar: appBar,
+      drawer: drawer,
       floatingActionButton: floatingActionButton,
     );
   }

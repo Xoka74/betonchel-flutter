@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "172629619433",
+    "project_id": "betonchel-manager",
+    "storage_bucket": "betonchel-manager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172629619433:android:80afd6842fcd64b590f678",
+        "android_client_info": {
+          "package_name": "com.betonchel.betonchel_manager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDirOJ2u9S_Vi91_2Y9wwxFlU5hxJD3bmo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

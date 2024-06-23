@@ -49,6 +49,7 @@ app.*.map.json
 
 # Config files
 config.json
+config-production.json
 
 # FVM Version Cache
 .fvm/

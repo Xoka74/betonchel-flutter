@@ -1,5 +1,4 @@
-import 'package:betonchel_manager/domain/models/concrete/frost_resistance_type.dart';
-import 'package:betonchel_manager/domain/models/concrete/waterproof_type.dart';
+import 'package:betonchel_manager/domain/models/concrete/concrete_grade_type.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -8,15 +7,21 @@ part 'concrete_grade.g.dart';
 @JsonSerializable(createToJson: false)
 class ConcreteGrade extends Equatable {
   final int id;
-  final String mark;
-  final String clazz;
-  final double pricePerCubicMeter;
 
-  final WaterproofType waterproofType;
-  final FrostResistanceType frostResistanceType;
+  final ConcreteGradeType name;
+  final String mark;
+
+  @JsonKey(name: 'class')
+  final String clazz;
+
+  final String? waterproofType;
+  final String? frostResistanceType;
+
+  final double pricePerCubicMeter;
 
   const ConcreteGrade({
     required this.id,
+    required this.name,
     required this.mark,
     required this.clazz,
     required this.pricePerCubicMeter,

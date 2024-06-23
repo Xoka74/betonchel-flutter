@@ -4,11 +4,15 @@ import 'package:rxdart/rxdart.dart';
 
 @singleton
 class UserDataSource {
-  final _user = BehaviorSubject<User>();
+  final _user = BehaviorSubject<User?>();
 
-  Stream<User> get user => _user.stream;
+  User? get user => _user.valueOrNull;
+
+  ValueStream<User?> get userStream => _user.stream;
 
   void set(User user) {
     _user.sink.add(user);
   }
+
+  void clear() => _user.add(null);
 }

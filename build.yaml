@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      injectable_generator:injectable_builder:
+        options:
+          auto_register: false
+          class_name_pattern:
+            "Service$|Repository$|Cubit"
+          file_name_pattern: "_service$|_repository$|_cubit$"

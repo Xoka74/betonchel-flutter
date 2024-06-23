@@ -1,0 +1,4 @@
+enum ApplicationListDisplayType {
+  table,
+  board,
+}
