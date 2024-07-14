@@ -7,6 +7,9 @@ jobs:
     steps:
       - name: Install fvm
         run: curl -fsSL https://fvm.app/install.sh | bash
+      - name: List files of github workspace dir
+        working-directory: ${{ github.workspace }}
+        run: ls
       - name: Download or check flutter by fvm
         working-directory: ${{ github.workspace }}
         run: fvm install
