@@ -17,7 +17,7 @@ class EmployeeCreateCubit extends FormScreenCubit<EmployeeForm> {
     final data = form.getData();
 
     try {
-      final result = _employeesRepository.createEmployee(data);
+      await _employeesRepository.createEmployee(data);
       emit(FormSubmittedState(form));
     } catch (err) {
       emit(FormSubmissionFailedState(form));

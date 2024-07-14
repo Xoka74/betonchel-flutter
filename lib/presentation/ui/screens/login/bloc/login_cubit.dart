@@ -1,7 +1,6 @@
 import 'package:betonchel_manager/domain/repositories/auth_repository.dart';
 import 'package:betonchel_manager/presentation/ui/components/cubits/base/initializable_cubit.dart';
 import 'package:betonchel_manager/presentation/ui/screens/login/bloc/login_state.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
@@ -25,9 +24,11 @@ class LoginCubit extends InitializableCubit<LoginState> {
   Future<void> login() async {
     emit(LoginLoadingState());
     try {
-      final data = await _authRepository.login(email.text, password.text);
+      await _authRepository.login(email.text, password.text);
       emit(LoginInitialState());
     } catch (err) {
+      _logger.e(err);
+
       emit(LoginErrorState(err.toString()));
     }
   }

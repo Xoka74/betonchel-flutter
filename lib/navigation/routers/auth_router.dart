@@ -14,7 +14,7 @@ class AuthRouter extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) async {
         final stack = switch (state) {
-          AuthorizedState() => context.router.pendingRoutesHandler.peek ?? [const HomeRootPage()],
+          AuthorizedState() => [const HomeRootPage()],
           UnauthorizedState() => const [UnauthorizedPage()],
           AuthLoadingState() => const [LoadingPage()],
         };

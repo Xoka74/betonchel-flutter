@@ -63,7 +63,7 @@ class OrderTable extends StatelessWidget {
         app.concreteGrade.mark.toString(),
         context.strings.nCubicMeters(app.volume),
         app.deliveryAddress ?? '-',
-        app.contactData ?? '-',
+        app.contactData,
         context.strings.nRoubles(app.totalPrice),
         app.status.title(context.strings),
         app.description,
