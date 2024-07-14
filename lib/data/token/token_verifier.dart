@@ -6,30 +6,20 @@ import 'package:injectable/injectable.dart';
 class TokenVerifier {
   final AuthRepository _authRepository;
 
-  TokenVerifier(this._authRepository){
-    print('TokenVerifierCreated');
-  }
+  TokenVerifier(this._authRepository);
 
   Future<T> withTokenVerification<T>(Future<T> Function() request) async {
     try {
-      print('withTokenVerification');
       final result = await request();
-      print('Result = $result');
       return result;
     } catch (err) {
-      print('OnException');
-      // if (err.response?.statusCode == 401) {
-        await _regenerateAccessTokenWithErrorHandling();
+      await _regenerateAccessTokenWithErrorHandling();
 
-        return request();
-      // }
-
-      // rethrow;
+      return request();
     }
   }
 
   Future<void> _regenerateAccessTokenWithErrorHandling() async {
-    print('_regenerateAccessTokenWithErrorHandling');
     try {
       await _authRepository.refreshTokens();
     } on DioException catch (err) {

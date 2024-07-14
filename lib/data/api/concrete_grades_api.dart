@@ -1,4 +1,3 @@
-import 'package:betonchel_manager/di/constants/injection_keys.dart';
 import 'package:betonchel_manager/domain/models/concrete/concrete_grade.dart';
 import 'package:betonchel_manager/domain/models/concrete/concrete_grade_data.dart';
 import 'package:betonchel_manager/domain/models/error/operation_status.dart';
@@ -12,7 +11,7 @@ part 'concrete_grades_api.g.dart';
 @injectable
 abstract class ConcreteGradesApi {
   @factoryMethod
-  factory ConcreteGradesApi(@Named(InjectionKeys.appDio) Dio dio) = _ConcreteGradesApi;
+  factory ConcreteGradesApi(Dio dio) = _ConcreteGradesApi;
 
   @GET('concrete_grades')
   Future<List<ConcreteGrade>> getConcreteGrades();

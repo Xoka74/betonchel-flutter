@@ -19,7 +19,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<void> login(String email, String password) async {
-    final loginRequest = LoginRequest(email: email, password: password);
+    final loginRequest = LoginRequest(username: email, password: password);
     final authData = await _authApi.login(loginRequest);
 
     return _authDataSource.save(authData);

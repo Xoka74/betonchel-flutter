@@ -1,6 +1,5 @@
 import 'package:betonchel_manager/data/models/requests/login_request.dart';
 import 'package:betonchel_manager/data/models/requests/refresh_tokens_request.dart';
-import 'package:betonchel_manager/di/constants/injection_keys.dart';
 import 'package:betonchel_manager/domain/models/auth/auth_data.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -13,11 +12,11 @@ part 'auth_api.g.dart';
 @injectable
 abstract class AuthApi {
   @factoryMethod
-  factory AuthApi(@Named(InjectionKeys.authDio) Dio dio) = _AuthApi;
+  factory AuthApi(Dio dio) = _AuthApi;
 
-  @POST('auth/login')
+  @POST('token')
   Future<AuthData> login(@Body() LoginRequest loginRequest);
 
-  @POST('auth/refresh-token')
+  @POST('token/refresh')
   Future<AuthData> refreshTokens(@Body() RefreshTokensRequest refreshTokensRequest);
 }

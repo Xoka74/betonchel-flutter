@@ -1,0 +1,4 @@
+enum OrderListDisplayType {
+  table,
+  board,
+}

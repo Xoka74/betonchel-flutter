@@ -17,8 +17,6 @@ class LoginScreen extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) => LoginScreenDependencies(child: this);
 
-  LoginCubit _loginCubit(BuildContext context) => context.read<LoginCubit>();
-
   @override
   Widget build(BuildContext context) {
     final strings = context.strings;
@@ -26,6 +24,7 @@ class LoginScreen extends StatelessWidget implements AutoRouteWrapper {
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
         final isLoading = state is LoginLoadingState;
+        final loginCubit = context.read<LoginCubit>();
 
         final errorText = state is LoginErrorState ? state.error : null;
 
@@ -44,14 +43,14 @@ class LoginScreen extends StatelessWidget implements AutoRouteWrapper {
                       child: Column(
                         children: [
                           AppTextField(
-                            controller: _loginCubit(context).email,
+                            controller: loginCubit.email,
                             errorText: errorText,
                             autofillHints: const [AutofillHints.email],
                             textInputAction: TextInputAction.next,
                             hintText: strings.mail,
                           ),
                           AppTextField(
-                            controller: _loginCubit(context).password,
+                            controller: loginCubit.password,
                             obscureText: true,
                             enableSuggestions: false,
                             errorText: errorText,
@@ -59,14 +58,14 @@ class LoginScreen extends StatelessWidget implements AutoRouteWrapper {
                             autofillHints: const [AutofillHints.password],
                             textInputAction: TextInputAction.done,
                             hintText: strings.password,
-                            onSubmitted: (_) => _loginCubit(context).login(),
+                            onSubmitted: (_) => loginCubit.login(),
                           ),
                         ],
                       ),
                     ),
                     const SizedBox(height: 8),
                     PrimaryButton(
-                      onPressed: _loginCubit(context).login,
+                      onPressed: loginCubit.login,
                       isLoading: isLoading,
                       child: Text(strings.login),
                     ),

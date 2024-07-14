@@ -4,11 +4,11 @@ part 'login_request.g.dart';
 
 @JsonSerializable(createFactory: false)
 class LoginRequest {
-  final String email;
+  final String username;
   final String password;
 
   LoginRequest({
-    required this.email,
+    required this.username,
     required this.password,
   });
 

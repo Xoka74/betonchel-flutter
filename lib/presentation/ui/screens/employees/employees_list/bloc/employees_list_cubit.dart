@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:betonchel_manager/domain/hubs/event.dart';
 import 'package:betonchel_manager/domain/hubs/event_bus.dart';
-import 'package:betonchel_manager/domain/repositories/employees_repository.dart';
+import 'package:betonchel_manager/domain/repositories/users_repository.dart';
 import 'package:betonchel_manager/presentation/ui/components/cubits/base/initializable_cubit.dart';
 import 'package:betonchel_manager/presentation/ui/screens/employees/employees_list/bloc/employees_list_state.dart';
 import 'package:injectable/injectable.dart';

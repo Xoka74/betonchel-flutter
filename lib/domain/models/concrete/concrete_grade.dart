@@ -7,14 +7,12 @@ part 'concrete_grade.g.dart';
 @JsonSerializable(createToJson: false)
 class ConcreteGrade extends Equatable {
   final int id;
-
   final ConcreteGradeType name;
   final String mark;
-
-  @JsonKey(name: 'class')
   final String clazz;
-
+  @JsonKey(name: 'waterproof_type')
   final String? waterproofType;
+  @JsonKey(name: 'frost_resistance_type')
   final String? frostResistanceType;
 
   final double pricePerCubicMeter;

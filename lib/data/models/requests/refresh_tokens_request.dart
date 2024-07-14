@@ -4,7 +4,9 @@ part 'refresh_tokens_request.g.dart';
 
 @JsonSerializable(createFactory: false)
 class RefreshTokensRequest {
+  @JsonKey(name: 'access')
   final String accessToken;
+  @JsonKey(name: 'refresh')
   final String refreshToken;
 
   RefreshTokensRequest({

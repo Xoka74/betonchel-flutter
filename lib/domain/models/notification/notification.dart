@@ -1,20 +1,20 @@
-import 'package:betonchel_manager/domain/models/application/application.dart';
+import 'package:betonchel_manager/domain/models/order/order.dart';
 
 sealed class AppNotification {
   final DateTime time;
-  final int applicationId;
+  final int orderId;
 
-  AppNotification(this.time, this.applicationId);
+  AppNotification(this.time, this.orderId);
 }
 
-class ApplicationCreatedNotification extends AppNotification {
-  final Application application;
+class OrderCreatedNotification extends AppNotification {
+  final Order order;
 
-  ApplicationCreatedNotification(this.application) : super(DateTime.now(), application.id);
+  OrderCreatedNotification(this.order) : super(DateTime.now(), order.id);
 }
 
-class ApplicationUpdatedNotification extends AppNotification {
-  final Application oldApp;
+class OrderUpdatedNotification extends AppNotification {
+  final Order oldOrder;
 
-  ApplicationUpdatedNotification(this.oldApp) : super(DateTime.now(), oldApp.id);
+  OrderUpdatedNotification(this.oldOrder) : super(DateTime.now(), oldOrder.id);
 }

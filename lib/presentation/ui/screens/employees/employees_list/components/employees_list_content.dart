@@ -68,7 +68,7 @@ class EmployeesListContent extends StatelessWidget {
   }
 
   List<String> _cellsBuilder(User user, BuildContext context) => [
-        user.fullName,
+        user.username,
         user.email,
         user.role.title(context.strings),
       ];

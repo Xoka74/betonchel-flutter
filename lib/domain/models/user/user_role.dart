@@ -4,8 +4,8 @@ part 'user_role.g.dart';
 
 @JsonEnum(alwaysCreate: true)
 enum UserRole {
-  @JsonValue('Admin')
+  @JsonValue('admin')
   admin,
-  @JsonValue('Manager')
+  @JsonValue('manager')
   manager;
 }

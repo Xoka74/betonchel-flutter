@@ -8,13 +8,13 @@ part 'user.g.dart';
 class User extends Equatable {
   final int id;
   final String email;
-  final String fullName;
+  final String username;
   final UserRole role;
 
   const User({
     required this.id,
     required this.email,
-    required this.fullName,
+    required this.username,
     required this.role,
   });
 
@@ -24,7 +24,7 @@ class User extends Equatable {
   List<Object?> get props => [
         id,
         email,
-        fullName,
+        username,
         role,
       ];
 }

@@ -49,7 +49,7 @@ class _HomeSideBarState extends State<HomeSideBar> {
       destinations: [
         NavigationRailDestination(
           label: Text(
-            strings.applications,
+            strings.orders,
             style: const TextStyle(fontSize: 16),
           ),
           icon: SvgPicture.asset(

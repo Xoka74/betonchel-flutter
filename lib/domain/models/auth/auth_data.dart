@@ -5,9 +5,9 @@ part 'auth_data.g.dart';
 
 @JsonSerializable(createToJson: false)
 class AuthData extends Equatable {
-  @JsonKey(name: 'accessToken')
+  @JsonKey(name: 'access')
   final String accessToken;
-  @JsonKey(name: 'refreshToken')
+  @JsonKey(name: 'refresh')
   final String refreshToken;
 
   const AuthData({

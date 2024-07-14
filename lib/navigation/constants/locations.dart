@@ -14,10 +14,10 @@ class Locations {
   static const profile = 'profile';
   static const settings = 'settings';
 
-  // Applications
-  static const applications = 'applications';
-  static const applicationDetails = '$applications/:id';
-  static const applicationEdit = '$applications/edit/:id';
+  // Orders
+  static const orders = 'orders';
+  static const orderDetails = '$orders/:id';
+  static const orderEdit = '$orders/edit/:id';
 
   // Concrete grades
   static const concreteGrades = 'concrete-grades';

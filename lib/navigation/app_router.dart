@@ -55,8 +55,8 @@ class AppRouter extends $AppRouter {
                   initial: true,
                 ),
                 AutoRoute(
-                  page: ApplicationDetailsPage.page,
-                  path: Locations.applicationDetails,
+                  page: OrderDetailsPage.page,
+                  path: Locations.orderDetails,
                 ),
                 AutoRoute(
                   page: EmployeesListPage.page,
@@ -67,12 +67,12 @@ class AppRouter extends $AppRouter {
                   path: Locations.notifications,
                 ),
                 AutoRoute(
-                  page: NewApplicationPage.page,
-                  path: Locations.applications,
+                  page: NewOrderPage.page,
+                  path: Locations.orders,
                 ),
                 AutoRoute(
-                  page: EditApplicationPage.page,
-                  path: Locations.applications,
+                  page: EditOrderPage.page,
+                  path: Locations.orders,
                 ),
                 AutoRoute(
                   page: SettingsPage.page,

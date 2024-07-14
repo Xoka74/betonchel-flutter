@@ -19,21 +19,21 @@ class AppNotificationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final strings = context.strings;
-    final title = 'Заявка №${notification.applicationId}';
+    final title = 'Заявка №${notification.orderId}';
 
     final description = switch (notification) {
-      ApplicationCreatedNotification() => 'Добавлена новая заявка',
-      ApplicationUpdatedNotification() => 'Обновлены данные заявки',
+      OrderCreatedNotification() => 'Добавлена новая заявка',
+      OrderUpdatedNotification() => 'Обновлены данные заявки',
     };
 
     final color = switch (notification) {
-      ApplicationCreatedNotification() => Colors.red,
-      ApplicationUpdatedNotification() => Colors.yellow,
+      OrderCreatedNotification() => Colors.red,
+      OrderUpdatedNotification() => Colors.yellow,
     };
 
     final asset = switch (notification) {
-      ApplicationCreatedNotification() => Assets.iconsAddCircle,
-      ApplicationUpdatedNotification() => Assets.iconsExclamationMark,
+      OrderCreatedNotification() => Assets.iconsAddCircle,
+      OrderUpdatedNotification() => Assets.iconsExclamationMark,
     };
 
     final borderRadius = BorderRadius.circular(24.0);

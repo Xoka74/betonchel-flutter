@@ -15,7 +15,7 @@ class AuthTokenInterceptor extends Interceptor {
   Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final accessToken = await _storage.read(key: StorageKeys.accessToken);
 
-    if (accessToken == null){
+    if (accessToken == null) {
       return handler.next(options);
     }
 
@@ -25,5 +25,15 @@ class AuthTokenInterceptor extends Interceptor {
     );
 
     return handler.next(options);
+  }
+
+  @override
+  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
+    if (err.response?.statusCode != 401) {
+      return super.onError(err, handler);
+    }
+
+
+
   }
 }
