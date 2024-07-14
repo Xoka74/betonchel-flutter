@@ -8,8 +8,8 @@ jobs:
       - name: Install fvm
         run: curl -fsSL https://fvm.app/install.sh | bash
       - name: Download or check flutter by fvm
-        run: |
-          cd ${{ github.workspace }}
-          fvm install
+        working-directory: ${{ github.workspace }}
+        run: fvm install
       - name: Build web application
+        working-directory: ${{ github.workspace }}
         run: fvm flutter build web
