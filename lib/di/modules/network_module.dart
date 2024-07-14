@@ -10,8 +10,8 @@ abstract class NetworkModule {
   @Named(InjectionKeys.baseUrl)
   String get baseUrl => EnvironmentConfiguration.baseUrl;
 
-  @Named(InjectionKeys.baseNotificationsUrl)
-  String get baseNotificationsUrl => EnvironmentConfiguration.baseNotificationsUrl;
+  @Named(InjectionKeys.baseWebsocketUrl)
+  String get baseNotificationsUrl => EnvironmentConfiguration.baseWebsocketUrl;
 
   Dio appDio(
     @Named(InjectionKeys.baseUrl) String baseUrl,

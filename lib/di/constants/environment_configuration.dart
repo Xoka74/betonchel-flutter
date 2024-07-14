@@ -11,8 +11,8 @@ class EnvironmentConfiguration {
   static const baseUrl = String.fromEnvironment(ConfigurationKeys.baseUrl);
 
   @StaticAssert(
-    bool.hasEnvironment(ConfigurationKeys.baseNotificationsUrl),
-    'Not found environment variable with name - ${ConfigurationKeys.baseNotificationsUrl}',
+    bool.hasEnvironment(ConfigurationKeys.baseWebsocketUrl),
+    'Not found environment variable with name - ${ConfigurationKeys.baseWebsocketUrl}',
   )
-  static const baseNotificationsUrl = String.fromEnvironment(ConfigurationKeys.baseNotificationsUrl);
+  static const baseWebsocketUrl = String.fromEnvironment(ConfigurationKeys.baseWebsocketUrl);
 }

@@ -4,8 +4,5 @@ import 'package:injectable/injectable.dart';
 
 final locator = GetIt.instance;
 
-const dev = Environment('dev');
-const prod = Environment('prod');
-
 @injectableInit
-void configureDependencies() => locator.init(environment: prod.name);
+void configureDependencies() => locator.init();
