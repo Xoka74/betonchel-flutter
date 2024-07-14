@@ -7,3 +7,7 @@ jobs:
     steps:
       - name: Install fvm
         run: curl -fsSL https://fvm.app/install.sh | bash
+      - name: Download or check flutter by fvm
+        run: fvm install
+      - name: Build web application
+        run: fvm flutter build web
