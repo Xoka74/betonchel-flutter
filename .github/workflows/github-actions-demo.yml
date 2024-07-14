@@ -5,5 +5,4 @@ jobs:
   build_and_deploy_web:
     runs-on: ubuntu-latest
     steps:
-      - run: brew tap leoafarias/fvm
-      - run: brew install fvm
+      - run: curl -fsSL https://fvm.app/install.sh | bash
