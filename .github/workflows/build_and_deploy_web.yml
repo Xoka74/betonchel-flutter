@@ -17,5 +17,3 @@ jobs:
         run: fvm dart run build_runner build
       - name: Build web application
         run: fvm flutter build web --dart-define-from-file=config.json
-      - name: Build web application
-        run: fvm flutter build web
