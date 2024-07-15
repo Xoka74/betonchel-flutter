@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Deploy Betonchel Manager Web App
+run-name: ${{ github.actor }} is deploying Betonchel Manager Web App to Production 🚀
 on: [ push ]
 jobs:
   build_and_deploy_web:
