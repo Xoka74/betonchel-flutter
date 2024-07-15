@@ -10,17 +10,12 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Download or check flutter by fvm
-#        working-directory: ${{ github.workspace }}
         run: fvm install
       - name: Download necessary dependencies
-#        working-directory: ${{ github.workspace }}
         run: fvm flutter pub get
       - name: Generate required code
-#        working-directory: ${{ github.workspace }}
         run: fvm dart run build_runner build
       - name: Build web application
-#        working-directory: ${{ github.workspace }}
         run: fvm flutter build web --dart-define-from-file=config.json
       - name: Build web application
-#        working-directory: ${{ github.workspace }}
         run: fvm flutter build web
