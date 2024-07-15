@@ -1,5 +1,5 @@
 name: Deploy Betonchel Manager Web App
-run-name: ${{ github.actor }} is deploying Betonchel Manager Web App to Production 🚀
+run-name: ${{ github.actor }} is deploying web to Production 🚀
 on: [ push ]
 jobs:
   build_and_deploy_web:
