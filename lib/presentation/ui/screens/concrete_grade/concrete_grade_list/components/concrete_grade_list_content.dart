@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:betonchel_manager/domain/models/concrete/concrete_grade.dart';
-import 'package:betonchel_manager/navigation/app_router.gr.dart';
+import 'package:betonchel_manager/navigation/web_router.gr.dart';
 import 'package:betonchel_manager/presentation/res/assets/assets.dart';
 import 'package:betonchel_manager/presentation/ui/components/buttons/primary_button.dart';
 import 'package:betonchel_manager/presentation/ui/screens/concrete_grade/concrete_grade_list/components/concrete_grade_item.dart';

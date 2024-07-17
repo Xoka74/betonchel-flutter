@@ -9,13 +9,13 @@ class User extends Equatable {
   final int id;
   final String email;
   final String username;
-  final UserRole role;
+  final List<UserRole> roles;
 
   const User({
     required this.id,
     required this.email,
     required this.username,
-    required this.role,
+    required this.roles,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
@@ -25,6 +25,6 @@ class User extends Equatable {
         id,
         email,
         username,
-        role,
+        roles,
       ];
 }

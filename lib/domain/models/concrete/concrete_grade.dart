@@ -14,15 +14,15 @@ class ConcreteGrade extends Equatable {
   final String? waterproofType;
   @JsonKey(name: 'frost_resistance_type')
   final String? frostResistanceType;
-
-  final double pricePerCubicMeter;
+  @JsonKey(name: 'price_for_cube')
+  final double priceForCube;
 
   const ConcreteGrade({
     required this.id,
     required this.name,
     required this.mark,
     required this.clazz,
-    required this.pricePerCubicMeter,
+    required this.priceForCube,
     required this.waterproofType,
     required this.frostResistanceType,
   });
@@ -34,7 +34,7 @@ class ConcreteGrade extends Equatable {
         id,
         mark,
         clazz,
-        pricePerCubicMeter,
+        priceForCube,
         waterproofType,
         frostResistanceType,
       ];

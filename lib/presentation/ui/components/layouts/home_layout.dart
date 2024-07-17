@@ -1,3 +1,4 @@
+import 'package:betonchel_manager/utils/extensions/context_extensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,14 +16,16 @@ class HomeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screen = context.screen;
+
     return Row(
       children: [
-        sideBar,
+        if (!screen.isMobile) sideBar,
         Expanded(
           flex: 5,
           child: Column(
             children: [
-              topBar,
+              if (!screen.isMobile) topBar,
               Expanded(
                 child: child,
               ),

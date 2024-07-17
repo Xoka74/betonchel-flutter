@@ -8,7 +8,6 @@ import 'package:betonchel_manager/domain/models/error/operation_status.dart';
 import 'package:betonchel_manager/domain/repositories/concrete_grades_repository.dart';
 import 'package:injectable/injectable.dart';
 
-@prod
 @Injectable(as: ConcreteGradesRepository)
 class ConcreteGradesRepositoryImpl extends BaseRepository implements ConcreteGradesRepository {
   final ConcreteGradesApi _concreteGradesApi;
@@ -27,16 +26,20 @@ class ConcreteGradesRepositoryImpl extends BaseRepository implements ConcreteGra
   Future<ConcreteGrade> getById(int id) async => withTokenVerification(() => _concreteGradesApi.getById(id));
 
   @override
-  Future<OperationStatus> createConcreteGrade(ConcreteGradeData data) => withTokenVerification(() async {
-        final result = await _concreteGradesApi.createConcreteGrade(data);
-        _eventBus.publish(ConcreteGradeCreatedEvent());
-        return result;
-      });
+  Future<OperationStatus> createConcreteGrade(ConcreteGradeData data) => withTokenVerification(
+        () async {
+          final result = await _concreteGradesApi.createConcreteGrade(data);
+          _eventBus.publish(ConcreteGradeCreatedEvent());
+          return result;
+        },
+      );
 
   @override
-  Future<OperationStatus> updateConcreteGrade(int id, ConcreteGradeData data) => withTokenVerification(() async {
-        final result = await _concreteGradesApi.updateConcreteGrade(id, data);
-        _eventBus.publish(ConcreteGradeUpdatedEvent());
-        return result;
-      });
+  Future<OperationStatus> updateConcreteGrade(int id, ConcreteGradeData data) => withTokenVerification(
+        () async {
+          final result = await _concreteGradesApi.updateConcreteGrade(id, data);
+          _eventBus.publish(ConcreteGradeUpdatedEvent());
+          return result;
+        },
+      );
 }

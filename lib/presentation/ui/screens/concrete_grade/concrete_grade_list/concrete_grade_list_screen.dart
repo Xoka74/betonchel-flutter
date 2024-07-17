@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:betonchel_manager/navigation/app_router.gr.dart';
+import 'package:betonchel_manager/navigation/web_router.gr.dart';
 import 'package:betonchel_manager/presentation/ui/screens/concrete_grade/concrete_grade_list/bloc/concrete_grade_list_cubit.dart';
 import 'package:betonchel_manager/presentation/ui/screens/concrete_grade/concrete_grade_list/bloc/concrete_grade_list_state.dart';
 import 'package:betonchel_manager/presentation/ui/screens/concrete_grade/concrete_grade_list/components/concrete_grade_list_content.dart';

@@ -10,9 +10,7 @@ class UserDataSource {
 
   ValueStream<User?> get userStream => _user.stream;
 
-  void set(User user) {
-    _user.sink.add(user);
-  }
+  void set(User user) => _user.sink.add(user);
 
   void clear() => _user.add(null);
 }

@@ -4,8 +4,8 @@ part 'concrete_grade_type.g.dart';
 
 @JsonEnum(alwaysCreate: true)
 enum ConcreteGradeType {
-  @JsonValue('Common')
+  @JsonValue(1)
   common,
-  @JsonValue('Fine')
+  @JsonValue(2)
   fine,
 }

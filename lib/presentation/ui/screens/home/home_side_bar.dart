@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:betonchel_manager/navigation/app_router.gr.dart';
+import 'package:betonchel_manager/navigation/web_router.gr.dart';
 import 'package:betonchel_manager/presentation/res/assets/assets.dart';
 import 'package:betonchel_manager/presentation/res/colors/app_colors.dart';
 import 'package:betonchel_manager/presentation/ui/components/buttons/primary_button.dart';
@@ -56,10 +56,12 @@ class _HomeSideBarState extends State<HomeSideBar> {
             Assets.iconsDocs,
             height: 24,
             width: 24,
-            colorFilter: _selectedIndex == 0 ? const ColorFilter.mode(
-              AppColors.blue,
-              BlendMode.srcIn,
-            ) : null,
+            colorFilter: _selectedIndex == 0
+                ? const ColorFilter.mode(
+                    AppColors.blue,
+                    BlendMode.srcIn,
+                  )
+                : null,
           ),
         ),
         NavigationRailDestination(
@@ -78,10 +80,12 @@ class _HomeSideBarState extends State<HomeSideBar> {
             Assets.iconsBox,
             height: 24,
             width: 24,
-            colorFilter: _selectedIndex == 2 ? const ColorFilter.mode(
-              AppColors.blue,
-              BlendMode.srcIn,
-            ) : null,
+            colorFilter: _selectedIndex == 2
+                ? const ColorFilter.mode(
+                    AppColors.blue,
+                    BlendMode.srcIn,
+                  )
+                : null,
           ),
         ),
       ],

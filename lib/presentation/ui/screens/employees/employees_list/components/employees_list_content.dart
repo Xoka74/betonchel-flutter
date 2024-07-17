@@ -1,10 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:betonchel_manager/domain/models/user/user.dart';
-import 'package:betonchel_manager/navigation/app_router.gr.dart';
+import 'package:betonchel_manager/navigation/web_router.gr.dart';
 import 'package:betonchel_manager/presentation/res/assets/assets.dart';
 import 'package:betonchel_manager/presentation/ui/components/buttons/primary_button.dart';
 import 'package:betonchel_manager/utils/extensions/context_extensions.dart';
-import 'package:betonchel_manager/utils/extensions/user_role_extension.dart';
 import 'package:flutter/material.dart';
 
 class EmployeesListContent extends StatelessWidget {
@@ -70,6 +69,6 @@ class EmployeesListContent extends StatelessWidget {
   List<String> _cellsBuilder(User user, BuildContext context) => [
         user.username,
         user.email,
-        user.role.title(context.strings),
+        // user.role.title(context.strings),
       ];
 }

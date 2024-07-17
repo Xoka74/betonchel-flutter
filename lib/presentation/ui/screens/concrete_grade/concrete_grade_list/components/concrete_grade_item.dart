@@ -97,7 +97,7 @@ class ConcreteGradeItem extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    strings.nRoubles(concreteGrade.pricePerCubicMeter),
+                    strings.nRoubles(concreteGrade.priceForCube),
                     style: const TextStyle(fontSize: 14),
                   ),
                 ],

@@ -34,7 +34,7 @@ class ConcreteGradeForm extends AppForm {
     clazz.text = grade.clazz;
     waterproofType.text = grade.waterproofType ?? '';
     frostResistanceType.text = grade.frostResistanceType ?? '';
-    pricePerCubicMeter.text = grade.pricePerCubicMeter.toString();
+    pricePerCubicMeter.text = grade.priceForCube.toString();
   }
 
   @override

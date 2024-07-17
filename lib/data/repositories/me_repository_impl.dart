@@ -3,9 +3,7 @@ import 'package:betonchel_manager/data/data_source/user_data_source.dart';
 import 'package:betonchel_manager/domain/models/user/user.dart';
 import 'package:betonchel_manager/domain/repositories/me_repository.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rxdart/rxdart.dart';
 
-@prod
 @Injectable(as: MeRepository)
 class MeRepositoryImpl implements MeRepository {
   final MeApi _userApi;
@@ -25,5 +23,5 @@ class MeRepositoryImpl implements MeRepository {
   }
 
   @override
-  ValueStream<User?> get user => _userDataSource.userStream;
+  Stream<User?> get user => _userDataSource.userStream;
 }

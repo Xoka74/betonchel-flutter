@@ -11,6 +11,6 @@ abstract class MeApi {
   @factoryMethod
   factory MeApi(Dio dio) = _MeApi;
 
-  @GET('me')
+  @GET('users/me')
   Future<User> getMe();
 }

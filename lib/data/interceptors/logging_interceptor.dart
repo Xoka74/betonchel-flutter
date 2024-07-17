@@ -20,7 +20,7 @@ class LoggingInterceptor extends Interceptor {
       stackTrace: err.stackTrace,
     );
 
-    handler.next(err);
+    super.onError(err, handler);
   }
 
   @override
@@ -34,7 +34,7 @@ class LoggingInterceptor extends Interceptor {
       stackTrace: StackTrace.empty,
     );
 
-    handler.next(options);
+    super.onRequest(options, handler);
   }
 
   @override
@@ -45,6 +45,7 @@ class LoggingInterceptor extends Interceptor {
       '$response',
       stackTrace: StackTrace.empty,
     );
-    return handler.next(response);
+
+    super.onResponse(response, handler);
   }
 }

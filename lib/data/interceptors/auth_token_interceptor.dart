@@ -26,14 +26,4 @@ class AuthTokenInterceptor extends Interceptor {
 
     return handler.next(options);
   }
-
-  @override
-  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (err.response?.statusCode != 401) {
-      return super.onError(err, handler);
-    }
-
-
-
-  }
 }

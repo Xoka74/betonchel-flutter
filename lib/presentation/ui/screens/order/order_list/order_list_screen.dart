@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:betonchel_manager/navigation/app_router.gr.dart';
+import 'package:betonchel_manager/navigation/web_router.gr.dart';
 import 'package:betonchel_manager/presentation/res/assets/assets.dart';
 import 'package:betonchel_manager/presentation/ui/components/buttons/primary_button.dart';
 import 'package:betonchel_manager/presentation/ui/components/date_pickers/date_picker_builder.dart';

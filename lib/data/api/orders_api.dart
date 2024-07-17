@@ -16,10 +16,10 @@ abstract class OrdersApi {
   factory OrdersApi(Dio dio) = _OrdersApi;
 
   @GET('orders')
-  Future<List<Order>> getApplications(@Queries() OrderFilters filters);
+  Future<List<Order>> getOrders(@Queries() OrderFilters filters);
 
   @GET('orders/{id}')
-  Future<Order> getApplicationById(@Path() int id);
+  Future<Order> getOrderById(@Path() int id);
 
   @POST('orders')
   Future<Order> createOrder(@Body() OrderData data);

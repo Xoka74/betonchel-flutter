@@ -4,8 +4,10 @@ import 'package:betonchel_manager/presentation/betonchel_manager_app.dart';
 import 'package:betonchel_manager/presentation/bloc_providers.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Future<void> main() async {
   await _setup();
@@ -20,9 +22,17 @@ Future<void> main() async {
 Future<void> _setup() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await _setupOrientation();
+
   await _setupFirebase();
 
   configureDependencies();
+}
+
+Future<void> _setupOrientation() async {
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
 }
 
 Future<void> _setupFirebase() async {
@@ -35,10 +45,12 @@ Future<void> _setupFirebase() async {
 }
 
 Future<void> _setupMessaging() async {
-  // await FirebaseMessaging.instance.subscribeToTopic(Topics.applications);
-  // print(await FirebaseMessaging.instance.getToken());
+  await FirebaseMessaging.instance.requestPermission(provisional: true);
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+}
 
-  // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  print('Handling a background message');
 }
 
 Future<void> _setupCrashlytics() async {

@@ -10,10 +10,11 @@ class TokenVerifier {
 
   Future<T> withTokenVerification<T>(Future<T> Function() request) async {
     try {
-      final result = await request();
-      return result;
-    } catch (err) {
-      await _regenerateAccessTokenWithErrorHandling();
+      return await request();
+    } on DioException catch (err) {
+      if (err.response?.statusCode == 401) {
+        await _regenerateAccessTokenWithErrorHandling();
+      }
 
       return request();
     }
@@ -21,7 +22,7 @@ class TokenVerifier {
 
   Future<void> _regenerateAccessTokenWithErrorHandling() async {
     try {
-      await _authRepository.refreshTokens();
+      await _authRepository.refreshToken();
     } on DioException catch (err) {
       if (err.response?.statusCode == 401) {
         await _authRepository.logout();

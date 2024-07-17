@@ -1,7 +1,6 @@
 import 'package:betonchel_manager/data/api/auth_api.dart';
 import 'package:betonchel_manager/data/data_source/auth_data_source.dart';
 import 'package:betonchel_manager/data/models/requests/login_request.dart';
-import 'package:betonchel_manager/data/models/requests/refresh_tokens_request.dart';
 import 'package:betonchel_manager/domain/repositories/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -26,15 +25,16 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<void> refreshTokens() async {
-    final request = RefreshTokensRequest(
-      accessToken: _authDataSource.accessToken!,
-      refreshToken: _authDataSource.refreshToken!,
-    );
+  Future<void> refreshToken() async {
+    final refreshToken = _authDataSource.refreshToken;
 
-    final authData = await _authApi.refreshTokens(request);
+    if (refreshToken == null) {
+      return;
+    }
 
-    return _authDataSource.save(authData);
+    final response = await _authApi.refreshTokens(refreshToken);
+
+    await _authDataSource.saveAccessToken(response.accessToken);
   }
 
   @override

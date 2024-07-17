@@ -40,6 +40,13 @@ class AuthDataSource {
     return _update(true);
   }
 
+  Future<void> saveAccessToken(String accessToken) async {
+    await _storage.write(key: StorageKeys.accessToken, value: accessToken);
+    this.accessToken = accessToken;
+
+    return _update(true);
+  }
+
   Future<void> clear() async {
     await _storage.delete(key: StorageKeys.accessToken);
     await _storage.delete(key: StorageKeys.refreshToken);

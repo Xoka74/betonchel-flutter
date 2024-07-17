@@ -1,19 +1,19 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:betonchel_manager/navigation/app_router.gr.dart';
 import 'package:betonchel_manager/navigation/constants/locations.dart';
 import 'package:betonchel_manager/navigation/custom_routes/dialog_modal_route.dart';
+import 'package:betonchel_manager/navigation/web_router.gr.dart';
 import 'package:injectable/injectable.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen|Popup|Router,Page')
 @lazySingleton
-class AppRouter extends $AppRouter {
+class WebRouter extends $WebRouter {
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
 
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: AuthPage.page,
+          page: WebAuthPage.page,
           path: Locations.root,
           initial: true,
           children: [

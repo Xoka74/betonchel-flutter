@@ -16,12 +16,15 @@ class Order extends Equatable {
   @JsonKey(name: 'customer_contact_data')
   final String contactData;
   final String description;
+  @JsonKey(name: 'total_price')
   final double totalPrice;
   final double volume;
   @JsonKey(name: 'customer_address')
   final String? deliveryAddress;
   @JsonKey(name: 'delivery_datetime')
   final DateTime deliveryDateTime;
+  @JsonKey(name: 'creation_datetime')
+  final DateTime creationDateTime;
   @JsonKey(name: 'concrete_grade')
   final ConcreteGrade concreteGrade;
   final OrderStatus status;
@@ -35,6 +38,7 @@ class Order extends Equatable {
     required this.volume,
     required this.deliveryAddress,
     required this.deliveryDateTime,
+    required this.creationDateTime,
     required this.concreteGrade,
     required this.status,
     required this.user,
@@ -52,6 +56,7 @@ class Order extends Equatable {
         volume,
         deliveryAddress,
         deliveryDateTime,
+        creationDateTime,
         concreteGrade,
         status,
         user,

@@ -8,11 +8,13 @@ import 'package:betonchel_manager/presentation/ui/components/cubits/base/initial
 import 'package:betonchel_manager/presentation/ui/components/date_pickers/date_controller.dart';
 import 'package:betonchel_manager/presentation/ui/screens/order/order_list/bloc/order_list_state.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 
 @injectable
 class OrderListCubit extends InitializableCubit<OrderListState> {
   final OrdersRepository _applicationsRepository;
   final EventBus _eventBus;
+  final Logger _logger;
 
   final datetime = DateController(
     DateTime.now(),
@@ -22,7 +24,11 @@ class OrderListCubit extends InitializableCubit<OrderListState> {
 
   late final StreamSubscription<Event> _subscription;
 
-  OrderListCubit(this._applicationsRepository, this._eventBus) : super(OrderListLoadingState());
+  OrderListCubit(
+    this._applicationsRepository,
+    this._eventBus,
+    this._logger,
+  ) : super(OrderListLoadingState());
 
   @override
   Future<void> initialize() async {
@@ -51,7 +57,8 @@ class OrderListCubit extends InitializableCubit<OrderListState> {
     try {
       final applications = await _applicationsRepository.getOrders(OrderFilters(date: date));
       emit(OrderListLoadedState(applications));
-    } catch (e) {
+    } catch (e, stackTrace) {
+      _logger.e(e, stackTrace: stackTrace);
       emit(OrderListErrorState());
     }
   }

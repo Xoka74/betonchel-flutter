@@ -4,12 +4,12 @@ part 'order_status.g.dart';
 
 @JsonEnum(alwaysCreate: true)
 enum OrderStatus {
-  @JsonValue('CR')
+  @JsonValue(1)
   created,
-  @JsonValue('IP')
+  @JsonValue(2)
   inProcess,
-  @JsonValue('SF')
+  @JsonValue(3)
   successfullyFinished,
-  @JsonValue('RJ')
+  @JsonValue(4)
   rejected;
 }

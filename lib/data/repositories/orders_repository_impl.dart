@@ -9,7 +9,6 @@ import 'package:betonchel_manager/domain/models/order/order_data.dart';
 import 'package:betonchel_manager/domain/repositories/orders_repository.dart';
 import 'package:injectable/injectable.dart' hide Order;
 
-@prod
 @Injectable(as: OrdersRepository)
 class OrdersRepositoryImpl extends BaseRepository implements OrdersRepository {
   final OrdersApi _applicationsApi;
@@ -41,9 +40,9 @@ class OrdersRepositoryImpl extends BaseRepository implements OrdersRepository {
   Future<OperationStatus> deleteOrder(int id) => withTokenVerification(() => _applicationsApi.deleteOrder(id));
 
   @override
-  Future<Order> getOrderById(int id) => withTokenVerification(() => _applicationsApi.getApplicationById(id));
+  Future<Order> getOrderById(int id) => withTokenVerification(() => _applicationsApi.getOrderById(id));
 
   @override
   Future<List<Order>> getOrders(OrderFilters filters) =>
-      withTokenVerification(() => _applicationsApi.getApplications(filters));
+      withTokenVerification(() => _applicationsApi.getOrders(filters));
 }
