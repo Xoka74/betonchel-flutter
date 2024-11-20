@@ -4,7 +4,7 @@ class ApplicationEvent extends Event {}
 
 class ConcreteGradeEvent extends Event {}
 
-class EmployeeEvent extends Event {}
+class UserEvent extends Event {}
 
 class ApplicationCreatedEvent extends ApplicationEvent {}
 
@@ -14,4 +14,4 @@ class ConcreteGradeUpdatedEvent extends ConcreteGradeEvent {}
 
 class ConcreteGradeCreatedEvent extends ConcreteGradeEvent {}
 
-class EmployeeCreatedEvent extends ConcreteGradeEvent {}
+class UserCreatedEvent extends UserEvent {}

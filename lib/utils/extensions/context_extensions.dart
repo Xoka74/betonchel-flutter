@@ -9,6 +9,8 @@ extension ContextExtensions on BuildContext {
 
   ResponsiveBreakpointsData get screen => ResponsiveBreakpoints.of(this);
 
+  bool get smallerThanTablet => screen.smallerOrEqualTo(TABLET);
+
   ThemeData get theme => Theme.of(this);
 
   AppColorsTheme get colorsTheme => AppColorsTheme.of(this) ?? AppThemes.lightColors;

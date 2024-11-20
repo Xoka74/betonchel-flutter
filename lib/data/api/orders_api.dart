@@ -1,5 +1,5 @@
 import 'package:betonchel_manager/domain/models/error/operation_status.dart';
-import 'package:betonchel_manager/domain/models/filters/order_filters.dart';
+import 'package:betonchel_manager/domain/models/order/order_filters.dart';
 import 'package:betonchel_manager/domain/models/order/order.dart';
 import 'package:betonchel_manager/domain/models/order/order_data.dart';
 import 'package:dio/dio.dart';
@@ -21,11 +21,11 @@ abstract class OrdersApi {
   @GET('orders/{id}')
   Future<Order> getOrderById(@Path() int id);
 
-  @POST('orders')
-  Future<Order> createOrder(@Body() OrderData data);
+  @POST('orders/')
+  Future<void> createOrder(@Body() OrderData data);
 
   @PUT('orders/{id}')
-  Future<Order> editOrder(@Path() int id, @Body() OrderData data);
+  Future<void> editOrder(@Path() int id, @Body() OrderData data);
 
   @DELETE('orders/{id}')
   Future<OperationStatus> deleteOrder(@Path() int id);

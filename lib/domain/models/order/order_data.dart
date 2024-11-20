@@ -5,17 +5,28 @@ part 'order_data.g.dart';
 
 @JsonSerializable(createFactory: false)
 class OrderData {
+  @JsonKey(name: 'customer_name')
   final String customerName;
 
+  @JsonKey(name: 'customer_address_name')
+  final String customerAddressName;
+
+  @JsonKey(name: 'customer_address_latitude')
+  final double customerAddressLatitude;
+
+  @JsonKey(name: 'customer_address_longitude')
+  final double customerAddressLongitude;
+
+  @JsonKey(name: 'customer_contact_data')
+  final String customerContactData;
+
+  @JsonKey(name: 'concrete_grade')
   final int concreteGradeId;
 
+  @JsonKey(name: 'total_price')
   final double totalPrice;
 
-  final String contactData;
-
   final double volume;
-
-  final String? deliveryAddress;
 
   final DateTime deliveryDate;
 
@@ -23,13 +34,15 @@ class OrderData {
 
   final OrderStatus status;
 
-  const OrderData({
+  OrderData({
     required this.customerName,
+    required this.customerAddressName,
+    required this.customerAddressLatitude,
+    required this.customerAddressLongitude,
+    required this.customerContactData,
     required this.concreteGradeId,
     required this.totalPrice,
-    required this.contactData,
     required this.volume,
-    required this.deliveryAddress,
     required this.deliveryDate,
     required this.description,
     required this.status,

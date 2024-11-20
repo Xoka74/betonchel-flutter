@@ -1,5 +1,3 @@
-import 'package:betonchel_manager/data/models/requests/access_token_response.dart';
-
 abstract interface class AuthRepository {
   Stream<bool?> get isAuthenticated;
 
@@ -8,4 +6,6 @@ abstract interface class AuthRepository {
   Future<void> refreshToken();
 
   Future<void> logout();
+
+  Future<void> setup();
 }

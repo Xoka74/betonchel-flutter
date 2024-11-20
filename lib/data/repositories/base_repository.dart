@@ -8,7 +8,6 @@ abstract class BaseRepository {
   Future<T> withTokenVerification<T>(Future<T> Function() apiRequest) =>
       _tokenVerifier.withTokenVerification(apiRequest);
 
-  Future<T> handleRequest<T>(Future<T> Function() apiRequest, [bool enableErrorHandling = true]) {
-    return withTokenVerification(apiRequest);
-  }
+  Future<T> handleRequest<T>(Future<T> Function() apiRequest, [bool enableErrorHandling = true]) =>
+      withTokenVerification(apiRequest);
 }

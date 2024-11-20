@@ -25,7 +25,7 @@ class _HomeSideBarState extends State<HomeSideBar> {
 
     final pages = [
       const ApplicationListPage(),
-      const EmployeesListPage(),
+      const UsersListPage(),
       const ConcreteGradeListPage(),
     ];
 
@@ -42,7 +42,7 @@ class _HomeSideBarState extends State<HomeSideBar> {
         context.router.replaceAll([pages[index]]);
       },
       leading: const Image(
-        image: AssetImage(Assets.imagesLogo),
+        image: AssetImage(Assets.logo),
         width: 150,
         height: 150,
       ),
@@ -53,7 +53,7 @@ class _HomeSideBarState extends State<HomeSideBar> {
             style: const TextStyle(fontSize: 16),
           ),
           icon: SvgPicture.asset(
-            Assets.iconsDocs,
+            Assets.docs,
             height: 24,
             width: 24,
             colorFilter: _selectedIndex == 0
@@ -77,7 +77,7 @@ class _HomeSideBarState extends State<HomeSideBar> {
             style: const TextStyle(fontSize: 16),
           ),
           icon: SvgPicture.asset(
-            Assets.iconsBox,
+            Assets.box,
             height: 24,
             width: 24,
             colorFilter: _selectedIndex == 2
@@ -97,7 +97,7 @@ class _HomeSideBarState extends State<HomeSideBar> {
               const Spacer(),
               PrimaryButton(
                 onPressed: context.read<AuthCubit>().logout,
-                iconStart: Assets.iconsLeave,
+                iconStart: Assets.leave,
                 child: Text(strings.logout),
               ),
             ],

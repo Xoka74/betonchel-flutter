@@ -17,6 +17,7 @@ class UserBuilder extends StatelessWidget {
     return BlocBuilder<UserCubit, UserState>(
       builder: (context, state) {
         final user = (state as UserLoadedState).user;
+
         return builder(user);
       },
     );

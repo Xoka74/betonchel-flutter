@@ -12,9 +12,10 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(
     this._authApi,
     this._authDataSource,
-  ) {
-    _authDataSource.read();
-  }
+  );
+
+  @override
+  Future<void> setup() => _authDataSource.read();
 
   @override
   Future<void> login(String email, String password) async {

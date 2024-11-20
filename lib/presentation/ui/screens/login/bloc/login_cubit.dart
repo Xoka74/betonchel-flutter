@@ -1,19 +1,19 @@
+import 'package:betonchel_manager/common/error_handler.dart';
 import 'package:betonchel_manager/domain/repositories/auth_repository.dart';
 import 'package:betonchel_manager/presentation/ui/components/cubits/base/initializable_cubit.dart';
 import 'package:betonchel_manager/presentation/ui/screens/login/bloc/login_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 
 @injectable
 class LoginCubit extends InitializableCubit<LoginState> {
   final AuthRepository _authRepository;
-  final Logger _logger;
+  final ErrorHandler _errorHandler;
 
   final email = TextEditingController();
   final password = TextEditingController();
 
-  LoginCubit(this._authRepository, this._logger) : super(LoginInitialState());
+  LoginCubit(this._authRepository, this._errorHandler) : super(LoginInitialState());
 
   @override
   void initialize() {
@@ -27,7 +27,7 @@ class LoginCubit extends InitializableCubit<LoginState> {
       await _authRepository.login(email.text, password.text);
       emit(LoginInitialState());
     } catch (err) {
-      _logger.e(err);
+      _errorHandler.handleError(err);
 
       emit(LoginErrorState(err.toString()));
     }

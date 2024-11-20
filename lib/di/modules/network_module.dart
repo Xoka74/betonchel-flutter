@@ -1,3 +1,4 @@
+import 'package:betonchel_manager/data/interceptors/api_key_interceptor.dart';
 import 'package:betonchel_manager/data/interceptors/auth_token_interceptor.dart';
 import 'package:betonchel_manager/data/interceptors/logging_interceptor.dart';
 import 'package:betonchel_manager/di/constants/environment_configuration.dart';
@@ -13,9 +14,13 @@ abstract class NetworkModule {
   @Named(InjectionKeys.baseWebsocketUrl)
   String get baseNotificationsUrl => EnvironmentConfiguration.baseWebsocketUrl;
 
-  Dio appDio(
+  @Named(InjectionKeys.apiKey)
+  String get apiKey => EnvironmentConfiguration.apiKey;
+
+  Dio dio(
     @Named(InjectionKeys.baseUrl) String baseUrl,
     AuthTokenInterceptor authTokenInterceptor,
+    ApiKeyInterceptor apiKeyInterceptor,
     LoggingInterceptor loggingInterceptor,
   ) =>
       Dio(
@@ -25,6 +30,7 @@ abstract class NetworkModule {
       )..interceptors.addAll(
           [
             authTokenInterceptor,
+            apiKeyInterceptor,
             loggingInterceptor,
           ],
         );

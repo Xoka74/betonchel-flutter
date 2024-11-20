@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget implements AutoRouteWrapper {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Image(image: AssetImage(Assets.imagesLogo)),
+                    const Image(image: AssetImage(Assets.logo)),
                     AutofillGroup(
                       child: Column(
                         children: [

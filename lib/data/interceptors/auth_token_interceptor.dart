@@ -15,12 +15,14 @@ class AuthTokenInterceptor extends Interceptor {
   Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final accessToken = await _storage.read(key: StorageKeys.accessToken);
 
+    print('AccessToken =$accessToken');
+
     if (accessToken == null) {
       return handler.next(options);
     }
 
     options.headers.putIfAbsent(
-      RequestKeys.authorization,
+      HeaderKeys.authorization,
       () => accessToken.bearer,
     );
 

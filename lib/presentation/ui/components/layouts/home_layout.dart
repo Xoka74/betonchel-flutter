@@ -16,16 +16,14 @@ class HomeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screen = context.screen;
-
     return Row(
       children: [
-        if (!screen.isMobile) sideBar,
+        if (!context.smallerThanTablet) sideBar,
         Expanded(
           flex: 5,
           child: Column(
             children: [
-              if (!screen.isMobile) topBar,
+              if (!context.smallerThanTablet) topBar,
               Expanded(
                 child: child,
               ),

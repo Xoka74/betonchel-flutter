@@ -23,7 +23,7 @@ class ConcreteGradeListScreen extends StatelessWidget implements AutoRouteWrappe
         ConcreteGradeListErrorState() => ErrorWidget(state.error),
         ConcreteGradeListLoadedState() => ConcreteGradeListContent(
             concreteGrades: state.concreteGrades,
-            onConcreteGradeClicked: (grade) => context.router.push(
+            onConcreteGradeClicked: (grade) => context.pushRoute(
               ConcreteGradeEditPage(id: grade.id),
             ),
           ),

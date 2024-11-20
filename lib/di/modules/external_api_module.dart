@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 
 @module
 abstract class ExternalApiModule {
+  @lazySingleton
   FlutterSecureStorage get storage => const FlutterSecureStorage();
 
   DeviceInfoPlugin get deviceInfoPlugin => DeviceInfoPlugin();

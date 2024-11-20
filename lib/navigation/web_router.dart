@@ -13,7 +13,7 @@ class WebRouter extends $WebRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: WebAuthPage.page,
+          page: AuthPage.page,
           path: Locations.root,
           initial: true,
           children: [
@@ -21,18 +21,6 @@ class WebRouter extends $WebRouter {
               page: LoadingPage.page,
               path: Locations.loading,
               initial: true,
-            ),
-            DialogModalRoute(
-              page: ConcreteGradeEditPage.page,
-              path: Locations.concreteGradesEdit,
-            ),
-            DialogModalRoute(
-              page: NewConcreteGradePage.page,
-              path: Locations.concreteGradesNew,
-            ),
-            DialogModalRoute(
-              page: EmployeeCreatePage.page,
-              path: Locations.employeesCreate,
             ),
             AutoRoute(
               page: UnauthorizedPage.page,
@@ -46,45 +34,79 @@ class WebRouter extends $WebRouter {
               ],
             ),
             AutoRoute(
-              page: HomeRootPage.page,
+              page: AuthorizedPage.page,
               path: '',
               children: [
+                DialogModalRoute(
+                  page: ConcreteGradeEditPage.page,
+                  path: Locations.concreteGradesEdit,
+                ),
+                DialogModalRoute(
+                  page: NewConcreteGradePage.page,
+                  path: Locations.concreteGradesNew,
+                ),
+                DialogModalRoute(
+                  page: EmployeeCreatePage.page,
+                  path: Locations.usersCreate,
+                ),
                 AutoRoute(
-                  page: ApplicationListPage.page,
-                  path: Locations.home,
+                  page: OrdersMapPage.page,
+                  path: Locations.ordersMap,
+                  children: [
+                    AutoRoute(
+                      page: OrderGroupListPage.page,
+                      path: 'asdasd',
+                      initial: true,
+                    ),
+                    AutoRoute(
+                      page: OrderMapDetailsPage.page,
+                      path: '213e',
+                    ),
+                  ],
+                ),
+                AutoRoute(
+                  page: HomeRootPage.page,
+                  path: '',
                   initial: true,
-                ),
-                AutoRoute(
-                  page: OrderDetailsPage.page,
-                  path: Locations.orderDetails,
-                ),
-                AutoRoute(
-                  page: EmployeesListPage.page,
-                  path: Locations.employees,
-                ),
-                AutoRoute(
-                  page: NotificationsListPage.page,
-                  path: Locations.notifications,
-                ),
-                AutoRoute(
-                  page: NewOrderPage.page,
-                  path: Locations.orders,
-                ),
-                AutoRoute(
-                  page: EditOrderPage.page,
-                  path: Locations.orders,
-                ),
-                AutoRoute(
-                  page: SettingsPage.page,
-                  path: Locations.settings,
-                ),
-                AutoRoute(
-                  page: ProfilePage.page,
-                  path: Locations.profile,
-                ),
-                AutoRoute(
-                  page: ConcreteGradeListPage.page,
-                  path: Locations.concreteGrades,
+                  children: [
+                    AutoRoute(
+                      page: ApplicationListPage.page,
+                      path: Locations.home,
+                      initial: true,
+                    ),
+                    AutoRoute(
+                      page: OrderDetailsPage.page,
+                      path: Locations.orderDetails,
+                    ),
+                    AutoRoute(
+                      page: UsersListPage.page,
+                      path: Locations.users,
+                    ),
+                    AutoRoute(
+                      page: CreateOrderPage.page,
+                      path: Locations.orders,
+                    ),
+                    AutoRoute(
+                      page: LocationSearchPage.page,
+                      path: Locations.locationsSearch,
+                    ),
+                    AutoRoute(
+                      page: EditOrderPage.page,
+                      path: Locations.orders,
+                    ),
+                    AutoRoute(
+                      page: SettingsPage.page,
+                      path: Locations.settings,
+                    ),
+                    AutoRoute(
+                      page: ProfilePage.page,
+                      path: Locations.profile,
+                    ),
+                    AutoRoute(
+                      page: ConcreteGradeListPage.page,
+                      path: Locations.concreteGrades,
+                    ),
+                  ],
                 ),
               ],
             ),

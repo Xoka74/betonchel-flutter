@@ -10,12 +10,12 @@ class Locations {
   // Home
   static const home = 'home';
   static const loading = 'loading';
-  static const notifications = 'notifications';
   static const profile = 'profile';
   static const settings = 'settings';
 
   // Orders
   static const orders = 'orders';
+  static const ordersMap = '$orders/map';
   static const orderDetails = '$orders/:id';
   static const orderEdit = '$orders/edit/:id';
 
@@ -24,7 +24,11 @@ class Locations {
   static const concreteGradesNew = '$concreteGrades/new';
   static const concreteGradesEdit = '$concreteGrades/edit/:id';
 
-  // Employees
-  static const employees = 'employees';
-  static const employeesCreate = '$employees/create';
+  // Locations
+  static const locations = 'locations';
+  static const locationsSearch = '$locations/search';
+
+  // Users
+  static const users = 'users';
+  static const usersCreate = '$users/create';
 }

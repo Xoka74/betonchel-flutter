@@ -31,7 +31,7 @@ class ConcreteGradeListContent extends StatelessWidget {
             children: [
               PrimaryButton(
                 onPressed: () => context.router.navigate(const NewConcreteGradePage()),
-                iconStart: Assets.iconsAddCircle,
+                iconStart: Assets.addCircle,
                 child: Text(strings.newGood),
               ),
             ],

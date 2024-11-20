@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:betonchel_manager/domain/models/user/user.dart';
-import 'package:betonchel_manager/domain/repositories/me_repository.dart';
+import 'package:betonchel_manager/domain/repositories/users_repository.dart';
 import 'package:betonchel_manager/presentation/ui/components/cubits/user/user_state.dart';
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class UserCubit extends Cubit<UserState> {
-  final MeRepository _userRepository;
+  final UsersRepository _userRepository;
 
   late final StreamSubscription<User?> _subscription;
 

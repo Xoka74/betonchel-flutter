@@ -1,4 +1,5 @@
 import 'package:betonchel_manager/domain/models/concrete/concrete_grade.dart';
+import 'package:betonchel_manager/domain/models/location/location.dart';
 import 'package:betonchel_manager/domain/models/order/order.dart';
 import 'package:betonchel_manager/domain/models/order/order_data.dart';
 import 'package:betonchel_manager/domain/models/order/order_status.dart';
@@ -20,30 +21,33 @@ class OrderForm extends AppForm {
   final volume = TextEditingController();
   final concreteGrade = ValueNotifier<ConcreteGrade?>(null);
   final description = TextEditingController();
-  final deliveryAddress = TextEditingController();
+  final customerAddress = ValueNotifier<Location?>(null);
   final allConcreteGrades = ValueNotifier<List<ConcreteGrade>>([]);
 
   void setData(Order order) {
-    customerName.text = order.customerName;
-    contactData.text = order.contactData;
+    customerName.text = order.customer.name;
+    contactData.text = order.customer.contactData;
     deliveryDateTime.value = order.deliveryDateTime;
     status.value = order.status;
     totalPrice.text = order.totalPrice.toString();
     volume.text = order.volume.toString();
     concreteGrade.value = order.concreteGrade;
     description.text = order.description;
-    deliveryAddress.text = order.deliveryAddress.toString();
+
+    customerAddress.value = order.location;
   }
 
   OrderData getOrderData() => OrderData(
         customerName: customerName.text,
-        contactData: contactData.text,
+        customerContactData: contactData.text,
+        customerAddressLatitude: customerAddress.value?.latitude ?? 0,
+        customerAddressLongitude: customerAddress.value?.longitude ?? 0,
+        customerAddressName: customerAddress.value?.name ?? '',
         deliveryDate: deliveryDateTime.value ?? DateTime.now(),
         totalPrice: double.parse(totalPrice.text),
         volume: double.parse(volume.text),
         concreteGradeId: concreteGrade.value!.id,
         status: status.value!,
-        deliveryAddress: deliveryAddress.text,
         description: description.text,
       );
 
@@ -51,7 +55,7 @@ class OrderForm extends AppForm {
   FormValidationError? validate() {
     final customerNameError = customerName.text.isEmpty ? ValidationError.required : null;
     final contactDataError = contactData.text.isEmpty ? ValidationError.required : null;
-    final deliveryAddressError = deliveryAddress.text.isEmpty ? ValidationError.required : null;
+    final deliveryAddressError = customerAddress.value == null ? ValidationError.required : null;
     final statusError = status.value == null ? ValidationError.required : null;
 
     final concreteGradeError = concreteGrade.value == null ? ValidationError.required : null;
@@ -93,7 +97,7 @@ class OrderForm extends AppForm {
     volume.addListener(listener);
     concreteGrade.addListener(listener);
     description.addListener(listener);
-    deliveryAddress.addListener(listener);
+    customerAddress.addListener(listener);
     allConcreteGrades.addListener(listener);
 
     super.addListener(listener);
@@ -108,7 +112,7 @@ class OrderForm extends AppForm {
     volume.removeListener(listener);
     concreteGrade.removeListener(listener);
     description.removeListener(listener);
-    deliveryAddress.removeListener(listener);
+    customerAddress.removeListener(listener);
     allConcreteGrades.removeListener(listener);
 
     super.removeListener(listener);
@@ -123,7 +127,7 @@ class OrderForm extends AppForm {
     volume.dispose();
     concreteGrade.dispose();
     description.dispose();
-    deliveryAddress.dispose();
+    customerAddress.dispose();
     allConcreteGrades.dispose();
 
     super.dispose();

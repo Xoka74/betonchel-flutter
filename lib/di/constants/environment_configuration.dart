@@ -15,4 +15,28 @@ class EnvironmentConfiguration {
     'Not found environment variable with name - ${ConfigurationKeys.baseWebsocketUrl}',
   )
   static const baseWebsocketUrl = String.fromEnvironment(ConfigurationKeys.baseWebsocketUrl);
+
+  @StaticAssert(
+    bool.hasEnvironment(ConfigurationKeys.tileMapProvider),
+    'Not found environment variable with name - ${ConfigurationKeys.tileMapProvider}',
+  )
+  static const tileMapProvider = String.fromEnvironment(ConfigurationKeys.tileMapProvider);
+
+  @StaticAssert(
+    bool.hasEnvironment(ConfigurationKeys.apiKey),
+    'Not found environment variable with name - ${ConfigurationKeys.apiKey}',
+  )
+  static const apiKey = String.fromEnvironment(ConfigurationKeys.apiKey);
+
+  @StaticAssert(
+    bool.hasEnvironment(ConfigurationKeys.defaultLocationLatitude),
+    'Not found environment variable with name - ${ConfigurationKeys.defaultLocationLatitude}',
+  )
+  static const defaultLocationLatitude = String.fromEnvironment(ConfigurationKeys.defaultLocationLatitude);
+
+  @StaticAssert(
+    bool.hasEnvironment(ConfigurationKeys.defaultLocationLongitude),
+    'Not found environment variable with name - ${ConfigurationKeys.defaultLocationLongitude}',
+  )
+  static const defaultLocationLongitude = String.fromEnvironment(ConfigurationKeys.defaultLocationLongitude);
 }

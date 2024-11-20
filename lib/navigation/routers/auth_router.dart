@@ -6,8 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class WebAuthRouter extends StatelessWidget {
-  const WebAuthRouter({super.key});
+class AuthRouter extends StatelessWidget {
+  const AuthRouter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,9 @@ class WebAuthRouter extends StatelessWidget {
         return AutoRouter.declarative(
           routes: (handler) => [
             ...switch (state) {
-              AuthorizedState() => handler.peek ?? [const HomeRootPage()],
               UnauthorizedState() => [const UnauthorizedPage()],
               AuthLoadingState() => [const LoadingPage()],
+              AuthorizedState() => handler.peek ?? [const AuthorizedPage()],
             }
           ],
         );

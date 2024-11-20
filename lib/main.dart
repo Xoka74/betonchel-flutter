@@ -1,7 +1,9 @@
 import 'package:betonchel_manager/di/injection.dart';
+import 'package:betonchel_manager/domain/repositories/auth_repository.dart';
 import 'package:betonchel_manager/firebase_options.dart';
 import 'package:betonchel_manager/presentation/betonchel_manager_app.dart';
 import 'package:betonchel_manager/presentation/bloc_providers.dart';
+import 'package:desktop_window/desktop_window.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -27,12 +29,16 @@ Future<void> _setup() async {
   await _setupFirebase();
 
   configureDependencies();
+
+  await locator<AuthRepository>().setup();
 }
 
 Future<void> _setupOrientation() async {
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+
+  DesktopWindow.setMinWindowSize(const Size(450, 600));
 }
 
 Future<void> _setupFirebase() async {
@@ -49,9 +55,7 @@ Future<void> _setupMessaging() async {
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 }
 
-Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  print('Handling a background message');
-}
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {}
 
 Future<void> _setupCrashlytics() async {
   if (!kIsWeb) {

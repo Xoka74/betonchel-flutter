@@ -32,6 +32,7 @@ class ConcreteGrade extends Equatable {
   @override
   List<Object?> get props => [
         id,
+        name,
         mark,
         clazz,
         priceForCube,

@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:betonchel_manager/domain/models/location/location.dart';
 import 'package:betonchel_manager/domain/models/order/order_status.dart';
+import 'package:betonchel_manager/navigation/web_router.gr.dart';
 import 'package:betonchel_manager/presentation/ui/components/buttons/dropdown/app_dropdown_button.dart';
 import 'package:betonchel_manager/presentation/ui/components/buttons/primary_button.dart';
 import 'package:betonchel_manager/presentation/ui/components/date_pickers/app_date_time_field.dart';
@@ -6,9 +9,9 @@ import 'package:betonchel_manager/presentation/ui/components/text_fields/app_tex
 import 'package:betonchel_manager/presentation/ui/components/text_fields/decimal_input_field.dart';
 import 'package:betonchel_manager/presentation/ui/screens/order/shared/models/order_form.dart';
 import 'package:betonchel_manager/presentation/ui/screens/order/shared/models/order_validation_error.dart';
-import 'package:betonchel_manager/utils/extensions/order_status_extension.dart';
 import 'package:betonchel_manager/utils/extensions/concrete_grade_extension.dart';
 import 'package:betonchel_manager/utils/extensions/context_extensions.dart';
+import 'package:betonchel_manager/utils/extensions/order_status_extension.dart';
 import 'package:flutter/material.dart';
 
 class OrderFormWidget extends StatelessWidget {
@@ -48,12 +51,16 @@ class OrderFormWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        AppTextField(
-          controller: form.deliveryAddress,
-          labelText: strings.deliveryAddress,
-          textInputAction: TextInputAction.next,
-          errorText: validationError?.deliveryAddressError?.toErrorString(
-            requiredError: strings.thisFieldIsRequired,
+        ValueListenableBuilder(
+          valueListenable: form.customerAddress,
+          builder: (context, value, _) => TextButton(
+            onPressed: () async {
+              var value = await context.router.push<Location?>(const LocationSearchPage());
+              if (value != null) {
+                form.customerAddress.value = value;
+              }
+            },
+            child: Text(value?.name ?? 'Не указано'),
           ),
         ),
         const SizedBox(height: 16),
@@ -121,9 +128,14 @@ class OrderFormWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        PrimaryButton(
-          onPressed: onSubmit,
-          child: Text(strings.save),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            PrimaryButton(
+              onPressed: onSubmit,
+              child: Text(strings.save),
+            ),
+          ],
         ),
       ],
     );
